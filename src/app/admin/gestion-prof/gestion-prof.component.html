@@ -7,7 +7,7 @@
           </a>
           <hr>
           <ul class="nav nav-pills flex-column mb-auto">
-            
+
             <li class="nav-item mb-3">
               <a href="#" class="nav-link" routerLink="/admin">Dashbord</a>
             </li>
@@ -16,7 +16,7 @@
             </li>
             <li class="nav-item mb-3">
               <a href="#" class="nav-link" routerLink="/admin-gestionApprenant">Gestion apprenant</a>
-            </li>              
+            </li>
           </ul>
 
           <hr>
@@ -33,14 +33,14 @@
               <div class="search col-md-10">
                   <p><i class="annee-scolaire bi bi-calendar2-event-fill me-2"></i> Anneée scolaire: 2023/2024</p>
               </div>
-              
+
               <div class="profil col-md-2">
                   <i class="bi bi-person-fill"></i>
               </div>
           </div>
           <hr>
       </div>
-    </div>  
+    </div>
 
     <!-- Contenu principale -->
     <div class="container">
@@ -80,7 +80,7 @@
               </div>
             </div>
           </div>
-          
+
         </div>
       </div>
 
@@ -157,7 +157,7 @@
               <div class="mb-3">
                   <label for="imageURLInput" class="form-label">URL de l'image: </label>
                   <input type="tel" name="imageURL" class="form-control" id="imageURLInput" [(ngModel)] ="imageUrl">
-              </div>                
+              </div>
           </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-annuler" data-bs-dismiss="modal" (click)="viderChampsCompte()">Annuler</button>
@@ -195,12 +195,12 @@
                   <p class="card-text" *ngIf="createAt"><span class="fw-bold">Créé le </span>{{createAt | date : 'dd/MM/yyyy'}} par <span class="fw-bold">{{createBy}} </span></p>
                   <p class="card-text" *ngIf="updateAt"><span class="fw-bold">Dernière mis à jour: </span>{{updateAt | date : 'dd/MM/yyyy à hh:mm'}}</p>
                   <!-- <p class="card-text" *ngIf="profFound.matieres.length">
-                    <span class="fw-bold">Total matiere(s):</span> {{profFound.matieres.length}} 
+                    <span class="fw-bold">Total matiere(s):</span> {{profFound.matieres.length}}
                     <button>Voir plus</button>
                   </p> -->
                 </div>
               </div>
-            </div>           
+            </div>
           </div>
       </div>
   </div>

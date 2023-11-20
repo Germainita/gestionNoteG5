@@ -340,6 +340,52 @@ detailClasse(paramClasse:any){
 //   console.log(paramApprenant);
 // }
 
+  // activer un apprenant
+  activerApprenant(user:any){
+    Swal.fire({
+      title: "Etes-vous sur???",
+      text: "Vous allez activer ce contact le contact",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#BE3144",
+      cancelButtonColor: "#F05941",
+      confirmButtonText: "Oui, j'active!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        user.etatApprenant = 1;
+        user.updateAt = new Date();
+        // On met à jour le tableau qui est stocké dans le localStorage
+        localStorage.setItem("apprenants", JSON.stringify(this.tabApprenant))
+        this.verifierChamps("Compte activé!", "", "success");
+      }
+    });
+  }
+
+  // desactiver un prof
+  desactiverApprenant(user:any){
+    Swal.fire({
+      title: "Etes-vous sur???",
+      text: "Vous allez desactiver ce contact",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#BE3144",
+      cancelButtonColor: "#F05941",
+      confirmButtonText: "Oui, je désactive!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        user.etatApprenant = 0;
+        user.updateAt = new Date();
+        // On met à jour le tableau qui est stocké dans le localStorage
+        localStorage.setItem("apprenants", JSON.stringify(this.tabApprenant))
+        this.verifierChamps("Compte désactivé!", "", "success");
+      }
+    });
+
+    //
+    console.log(user);
+    console.log(this.tabApprenant);
+  }
+
 detailApprenant(user:any){
   // let classeFound = this.tabClasses.find((elemnt:any)=> elemnt.idClasse == this.apprenantFound.niveau)
   this.imageUrl = user.image;

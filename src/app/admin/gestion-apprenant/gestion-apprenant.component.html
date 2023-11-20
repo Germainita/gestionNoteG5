@@ -101,7 +101,7 @@
 
 
             <!-- lister les apprenants -->
-          <div *ngIf="!choiceListe" >
+          <div  *ngIf="!choiceListe" >
             <div class="mt-5">
               <!-- <h3 class=" fw-bold titreUs shadow p-2 text-center mb-5 mt-5">Liste des classes</h3> -->
               <div class="d-flex justify-content-between mb-5">
@@ -120,23 +120,24 @@
             </div>
             <div class="card-header" >
               <h3>{{nomClasse}} </h3>
+              <h5>Effectif: {{effectif}} </h5>
               <!-- <p> </p> -->
-              <p>Effectif: {{effectif}}  </p>
+              <!-- <p>Effectif: {{effectif}}  </p> -->
               <p>Nombre d'apprenant: {{nbreApprenantClasse}}  </p>
             </div>
-            <div *ngIf="nbreApprenantClasse">
+            <div class="listedesclasses divclass card" *ngIf="nbreApprenantClasse">
               <div class="card-body" *ngFor="let item of tabApprenantClasse">
                 <ul class="nav nav-pills nav-fill">
                   <li class="nav-item">
-                    <!-- <h5 class="card-title">Nom</h5> -->
+                    <h5 class="card-title">Nom</h5>
                     <p class="mt-4">{{item.nom}} </p>
                   </li>
                   <li class="nav-item">
-                    <!-- <h5 class="card-title">Prenom</h5> -->
+                    <h5 class="card-title">Prenom</h5>
                     <p class="mt-4">{{item.prenom}}</p>
                   </li>
                   <li class="nav-item">
-                    <!-- <h5 class="card-title">Email</h5> -->
+                    <h5 class="card-title">Email</h5>
                     <p class="mt-4">{{item.email}}</p>
                   </li>
                   <!-- <li class="nav-item">
@@ -150,17 +151,19 @@
                   </li> -->
                   <li class="nav-item">
                   <!-- <div class="col-md-6"> -->
-                    <!-- <h5 class="titreDet">Etat</h5> -->
+                    <h5 class="titreDet">Etat</h5>
                     <div class="d-grid gap-2 d-md-block  btns mt-3 ">
-                        <button type="button" class="modifier btn btn-success me-3" data-bs-toggle="modal" data-bs-target="#modalModifierContact"
+                        <!-- <button type="button" class="modifier btn btn-success me-3" data-bs-toggle="modal" data-bs-target="#modalModifierContact"
                             >Activer</button>
-                        <button class="supprimer btn btn-danger btn-supprimer active" type="button">Desactiver</button>
+                        <button class="supprimer btn btn-danger btn-supprimer active" type="button">Desactiver</button> -->
+                        <button class=" modifier btn btn-activer me-2" *ngIf="item.etatApprenant==0" (click) = "activerApprenant(item)">Activer</button>
+                        <button class=" supprimer btn btn-desactiver me-2" *ngIf="item.etatApprenant==1" (click)="desactiverApprenant(item)">Désactiver</button>
                     <!-- </div> -->
                   </div>
                   </li>
                   <li class="nav-item">
                       <!-- <div class="col-md-6"> -->
-                        <!-- <h5 class="titreDet">Detail</h5> -->
+                        <h5 class="titreDet">Detail</h5>
                         <div class="d-grid gap-2 d-md-block  btns mt-3 ">
                           <button type="button" class="details btn btn-primary active btnAdd" data-bs-toggle="modal" data-bs-target="#detailApprenant"  (click)="detailApprenant(item)">Details</button>
                             <!-- <button class="btn btn-danger btn-supprimer active" type="button">Desactiver</button> -->
@@ -168,36 +171,7 @@
                       </div>
                   </li>
               </ul>
-              <!-- <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                </tbody>
-              </table> -->
-              </div>
+               </div>
 
             </div>
 
