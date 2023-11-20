@@ -203,11 +203,11 @@ export class AccueilProfComponent implements OnInit {
   // Methode pour charger les informations à modifier
   chargerInfosEvaluation(paramEvaluation:any){
     this.currentEvaluation = paramEvaluation;
-    this.semestreInput = paramEvaluation.semestreEvaluation;
-    this.dateInput = paramEvaluation.dateEvaluation;
-    this.typeInput = paramEvaluation.typeEvaluation;
-    this.anneeInput = paramEvaluation.anneeEvaluation;
-    this.etatInput = paramEvaluation.etatEvaluation;
+    this.semestreInput = paramEvaluation.semestre;
+    this.dateInput = paramEvaluation.date;
+    this.typeInput = paramEvaluation.type;
+    this.anneeInput = paramEvaluation.annee;
+    this.etatInput = paramEvaluation.etat;
     console.log(paramEvaluation)
   }
    // Modifier les informations
@@ -247,12 +247,12 @@ export class AccueilProfComponent implements OnInit {
   // Assurez-vous que currentEvaluation est défini
   if (this.currentEvaluation) {
     // Mettez à jour les propriétés de currentEvaluation avec les valeurs des champs d'entrée
-    this.currentEvaluation.semestreEvaluation = this.semestreInput;
+    this.currentEvaluation.semestre = this.semestreInput;
     console.log(this.currentEvaluation.semestreEvaluation )
-    this.currentEvaluation.dateEvaluation = this.dateInput;
-    this.currentEvaluation.typeEvaluation = this.typeInput;
-    this.currentEvaluation.anneeEvaluation = this.anneeInput;
-    this.currentEvaluation.etatEvaluation = this.etatInput;
+    this.currentEvaluation.date = this.dateInput;
+    this.currentEvaluation.type = this.typeInput;
+    this.currentEvaluation.annee = this.anneeInput;
+    this.currentEvaluation.etat = this.etatInput;
 
     // Mettez à jour la date de dernière modification
     this.currentEvaluation.updateAt = new Date();

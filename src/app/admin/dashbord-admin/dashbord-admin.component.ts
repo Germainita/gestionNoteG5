@@ -265,23 +265,23 @@ export class DashbordAdminComponent implements OnInit {
         console.log(professeur);
 
         // On vérifie si la classe n'a pas de professeur d'abord
-        if (!this.classeFound.prof){
-          //Si la classe n'a pas de prof On ajoute le prof dans la classe concerné en lui passant l'email du prof
-          this.classeFound.prof = professeur.idProf;
+        // if (!this.classeFound.prof){
+        //   //Si la classe n'a pas de prof On ajoute le prof dans la classe concerné en lui passant l'email du prof
+        //   this.classeFound.prof = professeur.idProf;
 
-          // On ajoute le prof dans le tableau des professeurs
-          this.tabProfesseurs.push(professeur);
+        // }
+        // On ajoute le prof dans le tableau des professeurs
+        this.tabProfesseurs.push(professeur);
 
-          // On met à jour le localstorage pour classe et prof
-          localStorage.setItem("professeurs", JSON.stringify(this.tabProfesseurs));
-          localStorage.setItem("classes", JSON.stringify(this.tabClasses));
-          this.verifierChamps("Felicitation!", "Compte créé avec succes", "success");
-          this.viderChampsCompte();
-        }
-        else{
-          // Si la classe a un professeur, on doit changé
-          this.verifierChamps("Impossible!", "La classe a déja un prof", "error");
-        }
+        // On met à jour le localstorage pour classe et prof
+        localStorage.setItem("professeurs", JSON.stringify(this.tabProfesseurs));
+        localStorage.setItem("classes", JSON.stringify(this.tabClasses));
+        this.verifierChamps("Felicitation!", "Compte créé avec succes", "success");
+        this.viderChampsCompte();
+        // else{
+        //   // Si la classe a un professeur, on doit changé
+        //   this.verifierChamps("Impossible!", "La classe a déja un prof", "error");
+        // }
 
         // Mis à jour des localStorage
         // localStorage.setItem("professeurs", JSON.stringify(this.tabProfesseurs));

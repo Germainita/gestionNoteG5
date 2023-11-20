@@ -83,28 +83,37 @@ thead tr th{
     color: white;
 }
 
-.btn-modifier{
+/* .btn-modifier{
     background-color: white!important;
     box-shadow: 4px 4px 2px #BE3144 ;
     color:  #BE3144;
-}
-.btn-details{
+} */
+/* .btn-details{
     background-color: white!important;
     box-shadow: 4px 4px 2px #F05941 ;
     color:  #F05941;
-}
+} */
 
 .btn-activer{
-    background-color: #F05941!important;
+    background-color: white!important;
     box-shadow: 4px 4px 2px #BE3144;
-    color:  white;
+    color:  black;
 }
 .btn-desactiver{
-    background-color: #BE3144!important;
+    background-color: white!important;
     box-shadow: 4px 4px 2px #F05941;
-    color:  white;
+    color:  black;
 }
 
+.btn-matiere{
+    background-color: transparent;
+    color: white;
+    padding: 8px 30px;
+    box-shadow: 3px 3px rgb(226, 221, 221);
+    border: none;
+    /* border: 3px solid #F05941; */
+    background-color: #BE3144;
+}
 .btn-annuler{
     background-color: #F05941;
     color: white;
@@ -129,3 +138,33 @@ thead tr th{
     color: #BE3144;
 }
 
+.btn-details{
+    background-color: #F05941 ;
+    border: none;
+    padding: 8px 30px;
+    box-shadow: 4px 4px  rgb(226, 221, 221);
+    color: white;
+}
+.btn-details:hover {
+background-color: #F05941 ;
+}
+
+    .detailsannuler{
+    background-color: #BE3144;
+    border: none;
+    padding: 8px 30px;
+    box-shadow: 4px 4px  rgb(226, 221, 221);
+    }
+.btn-modifier{
+background-color: transparent;
+color: black;
+padding: 8px 30px;
+box-shadow: 3px 3px #BE3144;
+border: none;
+/* border: 3px solid #F05941; */
+background-color: rgb(226, 221, 221);
+}
+.btn-modifier:hover{
+color: black;
+background-color: rgb(226, 221, 221);
+}

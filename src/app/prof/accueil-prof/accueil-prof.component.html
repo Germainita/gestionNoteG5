@@ -130,10 +130,10 @@
                 </td>
                 <td>
                   <ul class="action-list">
-                    <li><button type="button" [disabled]="evaluation.etatEvaluation === 'faite'" data-bs-toggle="modal" data-bs-target="#modifieModal"
+                    <li><button type="button" [disabled]="evaluation.etat === 'faite'" data-bs-toggle="modal" data-bs-target="#modifieModal"
                         (click)="chargerInfosEvaluation(evaluation)"><i
                           class="bi bi-pencil-square"></i>Modifier</button></li>
-                    <li><button type="button" [disabled]="evaluation.etatEvaluation === 'reportee'"><i
+                    <li><button type="button" [disabled]="evaluation.etat === 'reportee'"><i
                           class="bi bi-plus-circle"></i>Noter</button></li>
                           <li><button><span class="plus-evluation" data-bs-toggle="modal" data-bs-target="#detailEvaluation"
                             (click)="detailsEvaluation(evaluation)"> Details</span></button>

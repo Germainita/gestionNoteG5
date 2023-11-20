@@ -89,16 +89,6 @@ export class AuthComponent implements OnInit {
           updateAt: "",
           updateBy: ""
         },
-            {
-          idMatiere: 2,
-          nomMatiere: "HG",
-          description: "Science de la vie et de la terre",
-          evaluation: [],
-          createAt: "2023-11-18T01:08:59.632Z",
-          createBy: "djibyseck@gmail.com",
-          updateAt: "",
-          updateBy: ""
-        },
       ],
       idClasse: 3,
       createAt: "2023-11-18T09:06:07.356Z",

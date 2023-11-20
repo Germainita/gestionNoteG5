@@ -129,7 +129,7 @@
                 <td>
                   <button class="btn btn-modifier me-2" data-bs-toggle="modal" data-bs-target="#modifierProf" (click)="chargerInfosProf(prof)">Modifier</button>
                   <button class="btn btn-details me-2" data-bs-toggle="modal" data-bs-target="#detailProf" (click)="detailProf(prof)">Détails</button>
-                  <button class="btn btn-details me-2" data-bs-toggle="modal" data-bs-target="#affecterMatiereProf" (click)="detailProf(prof)" *ngIf="prof.etatProf==1"><i class="bi bi-plus"></i>matiere</button>
+                  <button class="btn btn-matiere me-2" data-bs-toggle="modal" data-bs-target="#affecterMatiereProf" (click)="detailProf(prof)" *ngIf="prof.etatProf==1"><i class="bi bi-plus"></i>matiere</button>
                 </td>
               </tr>
             </tbody>
@@ -177,7 +177,7 @@
           </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-annuler" data-bs-dismiss="modal" (click)="viderChampsCompte()">Annuler</button>
-              <button type="button" class="btn btn-ajouter" data-bs-dismiss="modal" (click)="modifierProf()">Modifier</button>
+              <button type="button" class="btn btn-ajouter" (click)="modifierProf()">Modifier</button>
           </div>
       </div>
   </div>
