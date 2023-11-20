@@ -1,0 +1,16 @@
+.bg-costum{
+  background-color: #F05941;
+
+}
+/* #BE3144 */
+#logo{
+  height: 50px;
+  weight:40%;
+  border-radius: 50%;
+}
+
+#modifier{
+  /* border-radius: 24%; */
+  border: none;
+  background-color: #F05941;
+}

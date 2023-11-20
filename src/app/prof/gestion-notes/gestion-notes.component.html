@@ -1,1 +1,49 @@
-<p>gestion-notes works!</p>
+<nav class="navbar bg-costum">
+  <div class="container-fluid">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+      <img src="assets/logogestionNote.png" id="logo" alt="">
+    </a>
+    <hr>
+    <a class="navbar-brand"><i class="bi bi-box-arrow-left"></i>Déconnexion</a>
+  </div>
+</nav>
+<div class="container">
+  <h2>Attribuer une note</h2>
+  <div class="d-flex">
+    <!-- <div><h5>Classe: {{ classe }}</h5></div> -->
+    <div>
+      <h5>Matière: {{matiere}}</h5>
+    </div>
+  </div>
+
+  <div class="container">
+    <table class="table caption-top">
+      <caption>Listes des apprenants</caption>
+      <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Prenom</th>
+          <th scope="col">Note</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let apprenant of apprenants">
+          <th scope="row">{{ apprenant.id }}</th>
+          <td>{{ apprenant.nom }} </td>
+          <td>{{ apprenant.prenom }}</td>
+          <td class="d-flex"><input id="note" placeholder="Saisissez votre note" class="form-control " [(ngModel)]="apprenant.notes"style="width: 170px;" ></td>
+          <div *ngIf="selectedApprenant">
+            <input id="note" placeholder="Saisissez votre note" class="form-control" [(ngModel)]="selectedApprenant.notes" style="width: 170px;">
+            <button (click)="enregistrerModification()">Enregistrer Modification</button>
+          </div>
+          <td>
+            <button id="modifier" (click)="modifierNote(apprenant)"><i class="bi bi-pencil-square"></i> Modifier</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <button (click)="enregistrerNote()" class="btn btn-primary">Enregistrer</button> -->
+  </div>
+

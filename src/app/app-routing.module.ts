@@ -6,9 +6,9 @@ import { ListeNotesComponent } from './apprenant/liste-notes/liste-notes.compone
 import { AuthComponent } from './auth/auth.component';
 import { GestionProfComponent } from './admin/gestion-prof/gestion-prof.component';
 import { GestionApprenantComponent } from './admin/gestion-apprenant/gestion-apprenant.component';
-
+import { GestionNotesComponent } from './prof/gestion-notes/gestion-notes.component';
 const routes: Routes = [
-  // On définit la route par défaut 
+  // On définit la route par défaut
   {path: '', redirectTo: 'auth', pathMatch: 'full'},
 
   // La page qui s'affiche par défaut
@@ -26,8 +26,14 @@ const routes: Routes = [
   // Route pour interface professeur
   {path: 'prof/:id', component:AccueilProfComponent},
 
-  // Route pour interface apprenant 
-  {path: 'apprenant/:id', component: ListeNotesComponent}
+   //route pourngestion
+   {path: 'prof/:id/gestionNotes', component: GestionNotesComponent},
+
+  // Route pour interface apprenant
+  {path: 'apprenant/:id', component: ListeNotesComponent},
+
+  // Route pour interface apprenant
+  // {path: 'apprenant', component:ListeNotesComponent}
 ];
 
 @NgModule({
