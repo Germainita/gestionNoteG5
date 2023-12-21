@@ -10,36 +10,36 @@
     width: auto;
     box-sizing: border-box;
   }
-  
+
   .logo{
     width: 30vh;
     height: 30vh;
     border-radius: 100%;
   }
-  
+
   .active-page{
     background-color: #BE3144;
   }
-  
+
   .nav-item a{
     color: white;
     font-weight: bold;
   }
-  
+
   .nav-item a:hover{
     background-color: #BE3144;
   }
-  
+
   .déconnexion{
     color: #BE3144;
   }
-  
-  
+
+
   /* container */
   .annee-scolaire{
   color: #BE3144;
   }
-  
+
   .divclass {
   box-shadow: 6px 6px  rgb(226, 221, 221);
   }
@@ -119,7 +119,7 @@
   padding: 8px 30px;
   box-shadow: 3px 3px  #F05941;
   }
-  
+
   /* liste apprenants */
   .buttonretour{
   background-color: #BE3144;
@@ -134,4 +134,20 @@
 
 .bi-person-circle{
     color: #BE3144;
+}
+
+/* activer & desactiver */
+.row-statistic{
+  padding: 0 20vh;
+}
+
+.row-statistic .card{
+  border: none;
+  border-right: 2px solid #F05941 ;
+}
+.compte-prof{
+  font-size: 13vh;
+  color: #BE3144;
+  /* padding: 0 4vh;
+  border-right: 3px solid #BE3144; */
 }

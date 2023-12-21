@@ -84,6 +84,7 @@ export class GestionApprenantComponent implements OnInit {
     // ];
 
     // Attribut qui stock l'apprenant qui s'est connecté
+
     apprenantConnect:any;
     apprenantTrouve:any;
 
@@ -131,7 +132,7 @@ export class GestionApprenantComponent implements OnInit {
 
   //  ];
 
-  // L'annee scolaire courent: 
+  // L'annee scolaire courent:
   anneeScolaireActu: any;
 
     //le tableau du localStorage pour la classe
@@ -142,6 +143,10 @@ export class GestionApprenantComponent implements OnInit {
     //
     classeTrouvee:any;
     // selectedClasse:any;
+
+      // Pour les apprenants
+    nbreApprenantActif: number = 0;
+    nbreApprenantInactif: number = 0;
 
     //Pour faire la recherche
     filterValue = '';
@@ -162,9 +167,9 @@ export class GestionApprenantComponent implements OnInit {
 
 
 ngOnInit(): void {
-  // Récupération de l'annescolaire courent 
+  // Récupération de l'annescolaire courent
   this.anneeScolaireActu = JSON.parse(localStorage.getItem("anneeScolaireCourent") || "");
-    
+
       // Insertion du tableau d'utilisateur dans le localstorage
     // console.log(this.apprenants);
     // if(!localStorage.getItem("classes")){
@@ -192,6 +197,15 @@ ngOnInit(): void {
 
   //  this.apprenants = this.tabClasses.find((element:any) => element.idClasse == this.apprenants);
 
+      // On récupère initialement le nombre de prof actifs et inactifs
+      this.tabApprenants.forEach((element:any) => {
+        if(element.etatApprenant == 1){
+          this.nbreApprenantActif += 1;
+        }
+        else {
+          this.nbreApprenantInactif +=1;
+        }
+      });
   }
     onSearch(){
       // Recherche se fait selon le nom ou le prenom
@@ -348,7 +362,7 @@ detailClasse(paramClasse:any){
   activerApprenant(user:any){
     Swal.fire({
       title: "Etes-vous sur???",
-      text: "Vous allez activer ce contact le contact",
+      text: "Vous allez activer ce contact ",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#BE3144",
@@ -361,11 +375,15 @@ detailClasse(paramClasse:any){
         // On met à jour le tableau qui est stocké dans le localStorage
         localStorage.setItem("apprenants", JSON.stringify(this.tabApprenant))
         this.verifierChamps("Compte activé!", "", "success");
+
+        // Si on active un prof, le nombre de prof actifs augmente et le nombre de prof inactif dimunue
+        this.nbreApprenantActif +=1;
+        this.nbreApprenantInactif -= 1;
       }
     });
   }
 
-  // desactiver un prof
+  // desactiver un apprenant
   desactiverApprenant(user:any){
     Swal.fire({
       title: "Etes-vous sur???",
@@ -382,6 +400,9 @@ detailClasse(paramClasse:any){
         // On met à jour le tableau qui est stocké dans le localStorage
         localStorage.setItem("apprenants", JSON.stringify(this.tabApprenant))
         this.verifierChamps("Compte désactivé!", "", "success");
+        // Si on désactive un prof, le nombre de prof actifs dimunie et le nombre de prof inactif augmente
+        this.nbreApprenantActif -=1;
+        this.nbreApprenantInactif += 1;
       }
     });
 
@@ -418,5 +439,6 @@ viderChampsDetailApprenant(){
   this.updateAt = "";
   this.updateBy = "";
 }
+
 
 }

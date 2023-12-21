@@ -26,7 +26,7 @@ export class AuthComponent implements OnInit {
     },
   ]
 
-  // Initialiation des matieres avec des données 
+  // Initialiation des matieres avec des données
   matieres: Matiere[] =  [
     {
       idMatiere: 1,
@@ -40,7 +40,7 @@ export class AuthComponent implements OnInit {
     },
   ]
 
-  // Initialisation des profs avec des données 
+  // Initialisation des profs avec des données
   professeurs: Professeur[] = [
     {
       idProf: 1,
@@ -127,7 +127,7 @@ export class AuthComponent implements OnInit {
     }
   ];
 
-  // Initialisation des apprenants avec des donnees 
+  // Initialisation des apprenants avec des donnees
   apprenants: Apprenant[] = [
     {
       idApprenant: 1,
@@ -191,7 +191,7 @@ export class AuthComponent implements OnInit {
     },
   ];
 
-  // Initialisation des classes avec des donnees 
+  // Initialisation des classes avec des donnees
   classes: Classe[] = [
     {
       idClasse: 1,
@@ -326,12 +326,12 @@ export class AuthComponent implements OnInit {
   exactPasswordCon : boolean = false;
 
   // L'annee scolaire
-  // L'annee scolaire courent: 
+  // L'annee scolaire courent:
   anneeScolaireCourent: any;
   annee = new Date();
   anneeActu = this.annee.getFullYear();
   // Le premier mois commence par 0 avec la methode getMonth()
-  moisActu = this.annee.getMonth(); 
+  moisActu = this.annee.getMonth();
 
   // Le constructeur
   constructor(private route:Router){}
@@ -340,7 +340,7 @@ export class AuthComponent implements OnInit {
   // Methode ngOnInit
   ngOnInit(): void {
     // L'annee scolaire commence en octobre (mois = 9) et se termine en juillet (Mois = 6)
-    // Par contre Aout et septembre font partie de l'annee scolaire en cours 
+    // Par contre Aout et septembre font partie de l'annee scolaire en cours
     // si le mois et compris entre 0 et 6 l'annee scolaire= anneeActu -1/anneeActu
     if(this.moisActu >=0 && this.moisActu <= 8){
       this.anneeScolaireCourent = (this.anneeActu -1) + "/" + this.anneeActu;
@@ -350,7 +350,7 @@ export class AuthComponent implements OnInit {
 
     }
 
-    // on stocke l'annee scolaire dans le localstogare 
+    // on stocke l'annee scolaire dans le localstogare
     localStorage.setItem("anneeScolaireCourent", JSON.stringify(this.anneeScolaireCourent));
 
     // Pour les administrateurs

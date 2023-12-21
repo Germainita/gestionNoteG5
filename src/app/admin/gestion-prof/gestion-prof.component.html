@@ -7,7 +7,7 @@
           </a>
           <hr>
           <ul class="nav nav-pills flex-column mb-auto">
-            
+
             <li class="nav-item mb-3">
               <a href="#" class="nav-link" routerLink="/admin">Dashbord</a>
             </li>
@@ -16,7 +16,7 @@
             </li>
             <li class="nav-item mb-3">
               <a href="#" class="nav-link" routerLink="/admin-gestionApprenant">Gestion apprenant</a>
-            </li>              
+            </li>
           </ul>
 
           <hr>
@@ -33,7 +33,7 @@
           <div class="search col-md-8">
               <p class="fs-4"><i class="annee-scolaire bi bi-calendar2-event-fill me-2 fs-2"></i> Anneée scolaire: {{anneeScolaireActu}}</p>
           </div>
-          
+
           <div class="profil col-md-4">
               <p class="fs-4">
                   <span class="me-2"><i class="bi bi-person-circle fs-2"></i></span>
@@ -43,7 +43,7 @@
         </div>
         <hr>
       </div>
-    </div> 
+    </div>
 
     <!-- Contenu principale -->
     <div class="container">
@@ -83,7 +83,7 @@
               </div>
             </div>
           </div>
-          
+
         </div>
       </div>
 
@@ -101,7 +101,7 @@
           </div>
           <!-- <h3 class="fw-bold mb-3">Liste des professeurs</h3> -->
           <div class="conatiainer-table">
-            
+
           </div>
           <table class="table table-responsive shadow">
             <thead>
@@ -173,7 +173,7 @@
               <div class="mb-3">
                   <label for="imageURLInput" class="form-label">URL de l'image: </label>
                   <input type="tel" name="imageURL" class="form-control" id="imageURLInput" [(ngModel)] ="imageUrl">
-              </div>                
+              </div>
           </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-annuler" data-bs-dismiss="modal" (click)="viderChampsCompte()">Annuler</button>
@@ -211,10 +211,10 @@
                   <p class="card-text" *ngIf="etat == 0"><span class="fw-bold">Etat:</span> Inactif</p>
                   <p class="card-text" *ngIf="createAt"><span class="fw-bold">Créé le </span>{{createAt | date : 'dd/MM/yyyy'}} par <span class="fw-bold">{{createBy}} </span></p>
                   <p class="card-text" *ngIf="updateAt"><span class="fw-bold">Dernière mis à jour: </span>{{updateAt | date : 'dd/MM/yyyy à hh:mm'}}</p>
-                  
+
                 </div>
               </div>
-            </div>           
+            </div>
           </div>
       </div>
   </div>
@@ -236,21 +236,21 @@
                       <h5 class="card-title fw-bold">Professeur: {{prenom}} {{nom}}</h5>
                   </div>
                   <div class="row my-3">
-                      <p class="card-text"><span class="fw-bold">Classe:</span> {{classe}}</p>        
+                      <p class="card-text"><span class="fw-bold">Classe:</span> {{classe}}</p>
                       <p class="card-text"><span class="fw-bold">Matiere:</span> {{nomMatiere}} </p>
                       <p class="card-text"><span class="fw-bold">Description:</span> {{description}} </p>
                       <p class="card-text"><span class="fw-bold">Nombre d'evaluation:</span> {{nbreEvaluation}}</p>
-                      
+
                       <div class="card-text" *ngIf=" nbreEvaluation > 0">
                           <p class="card-text"  *ngFor="let evaluation of tabEvaluations">
-                            <span class="fw-bold">Evaluation {{evaluation.idEvaluation}}:</span> 
-                            <span class="plus-evluation" data-bs-toggle="modal" data-bs-target="#detailEvaluation" (click)="detailsEvaluation(evaluation)"> {{evaluation.type}} ({{evaluation.etat}})</span>  
+                            <span class="fw-bold">Evaluation {{evaluation.idEvaluation}}:</span>
+                            <span class="plus-evluation" data-bs-toggle="modal" data-bs-target="#detailEvaluation" (click)="detailsEvaluation(evaluation)"> {{evaluation.type}} ({{evaluation.etat}})</span>
                           </p>
                       </div>
-      
+
                   </div>
               </div>
-            </div>           
+            </div>
           </div>
       </div>
   </div>
@@ -272,16 +272,16 @@
                       <h5 class="card-title fw-bold">Professeur: {{prenom}} {{nom}}</h5>
                   </div>
                   <div class="row my-3">
-                      <p class="card-text"><span class="fw-bold">Classe:</span> {{classe}}</p>        
+                      <p class="card-text"><span class="fw-bold">Classe:</span> {{classe}}</p>
                       <p class="card-text"><span class="fw-bold">Matiere:</span> {{nomMatiere}} </p>
                       <p class="card-text"><span class="fw-bold">Evaluation {{numEvaluation}}:</span> {{typeEvaluation}} </p>
                       <p class="card-text"><span class="fw-bold">Etat de l'evaluation:</span> {{etatEvaluation}}</p>
                       <p class="card-text"><span class="fw-bold">Annee scolaire:</span> {{anneScolaire}}</p>
-                      <p class="card-text"><span class="fw-bold">Semestre:</span> {{semestre}}</p>        
-                      <p class="card-text" *ngIf="etatEvaluation== 'faite'"><span class="fw-bold" class="plus-evluation" data-bs-toggle="modal" data-bs-target="#detailNoteApprenant" (click)="detailsNoteApprenant(classe)">Voir note des apprenants:</span></p>        
+                      <p class="card-text"><span class="fw-bold">Semestre:</span> {{semestre}}</p>
+                      <p class="card-text" *ngIf="etatEvaluation== 'faite'"><span class="fw-bold" class="plus-evluation" data-bs-toggle="modal" data-bs-target="#detailNoteApprenant" (click)="detailsNoteApprenant(classe)">Voir note des apprenants:</span></p>
                   </div>
               </div>
-            </div>           
+            </div>
           </div>
       </div>
   </div>
@@ -303,8 +303,8 @@
                       <h5 class="card-title fw-bold">Professeur: {{prenom}} {{nom}}</h5>
                   </div>
                   <div class="row my-3">
-                      <p class="card-text"><span class="fw-bold">Classe:</span> {{classe}}</p>        
-                      <p class="card-text"><span class="fw-bold">Matiere:</span> {{nomMatiere}} </p> 
+                      <p class="card-text"><span class="fw-bold">Classe:</span> {{classe}}</p>
+                      <p class="card-text"><span class="fw-bold">Matiere:</span> {{nomMatiere}} </p>
                       <div class="list-user" >
                           <div class="row  align-items-start g-2 rounded-2 py-2 row-list-user">
                               <div class="col-2 fw-bold"></div>
@@ -329,10 +329,10 @@
                               </div> -->
                           </div>
                       </div>
-                           
+
                   </div>
               </div>
-            </div>           
+            </div>
           </div>
       </div>
   </div>
@@ -353,7 +353,7 @@
                 <div class="row my-3">
                   <h5 class="card-title text-center fw-bold">Professeur {{prenom}} {{nom}}</h5>
                   <p class="card-text text-center"><span class="fw-bold">Classe:</span> {{classe}}</p>
-                  <p class="card-text text-center"><span class="fw-bold">Matiere(s):</span> <span *ngFor="let matiere of tabMatieresProf"><span> {{matiere.nomMatiere}} </span></span></p>  
+                  <p class="card-text text-center"><span class="fw-bold">Matiere(s):</span> <span *ngFor="let matiere of tabMatieresProf"><span> {{matiere.nomMatiere}} </span></span></p>
                   <!-- Selectionner la matiere à ajouter -->
                   <!-- La matiere  -->
                   <!-- <input type="text" placeholder="matiere"> -->
@@ -366,7 +366,7 @@
                   </div>
                 </div>
               </div>
-            </div>           
+            </div>
           </div>
 
           <div class="modal-footer">

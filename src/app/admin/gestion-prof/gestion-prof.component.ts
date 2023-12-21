@@ -7,14 +7,14 @@ import Swal from 'sweetalert2';
   styleUrls: ['./gestion-prof.component.css']
 })
 export class GestionProfComponent implements OnInit {
-  // Déclaration des variables 
+  // Déclaration des variables
   filteredElement: any;
   // Varible pour récupérer les profs enregistré dans le localStorage
   tabProfs: any;
 
   profFound: any;
 
-  // Variables pour les informations du prof 
+  // Variables pour les informations du prof
   nom: string= "";
   prenom: string= "";
   email: string= "";
@@ -31,7 +31,7 @@ export class GestionProfComponent implements OnInit {
   classe: string = "";
   matiereProfChose: string = "";
 
-  // Pour les apprenants 
+  // Pour les apprenants
   classeApprenant: any;
 
   // Pour les professeurs
@@ -53,37 +53,37 @@ export class GestionProfComponent implements OnInit {
   anneScolaire: any;
   typeEvaluation: any;
   etatEvaluation: any;
-  numEvaluation: any; 
-  classeEvalue: any; 
+  numEvaluation: any;
+  classeEvalue: any;
   listeApprenantsEvalues: any;
 
-  // Pour les classe: 
+  // Pour les classe:
   tabClasses: any;
 
-  // L'administrateur qui s'est connecté 
+  // L'administrateur qui s'est connecté
   adminConnect: any;
 
   // L'apprenant sélectionné
   apprenantFound: any;
 
-  // La classe choisi lors de l'ajout 
+  // La classe choisi lors de l'ajout
   classeFound: any;
 
-  // L'annee scolaire courent: 
+  // L'annee scolaire courent:
   anneeScolaireActu: any;
 
-  // Recherche 
-  // Pour récuperer le champs input 
+  // Recherche
+  // Pour récuperer le champs input
   filterValue: string= "";
   // professeur
   tabProfsFilter: any;
 
-  // Déclarations des methodes 
+  // Déclarations des methodes
   ngOnInit(): void {
-    // Récupération de l'annescolaire courent 
+    // Récupération de l'annescolaire courent
     this.anneeScolaireActu = JSON.parse(localStorage.getItem("anneeScolaireCourent") || "");
-    
-    // Récupérations du tableau 
+
+    // Récupérations du tableau
     this.tabProfs = JSON.parse(localStorage.getItem("professeurs") || "[]");
     // console.log(this.tabProfs);
     this.tabProfsFilter = this.tabProfs;
@@ -91,12 +91,12 @@ export class GestionProfComponent implements OnInit {
     // On récupère l'admin qui s'est connecté
     this.adminConnect = JSON.parse(localStorage.getItem("adminConnect") || "[]");
 
-    // On récupère et stocke le tableau des classes 
+    // On récupère et stocke le tableau des classes
     this.tabClasses = JSON.parse(localStorage.getItem("classes") || "[]");
 
-    
-    // On récupère et stocke le tableau des matieres 
-    this.tabMatieres = JSON.parse(localStorage.getItem("matieres") || "[]"); 
+
+    // On récupère et stocke le tableau des matieres
+    this.tabMatieres = JSON.parse(localStorage.getItem("matieres") || "[]");
 
     // On récupère initialement le nombre de prof actifs et inactifs
     this.tabProfs.forEach((element:any) => {
@@ -111,13 +111,13 @@ export class GestionProfComponent implements OnInit {
 
   // Methode de recherche automatique pour professeur
   onSearchProf(){
-    // Recherche se fait selon le nom ou le prenom 
+    // Recherche se fait selon le nom ou le prenom
     this.tabProfsFilter = this.tabProfs.filter(
       (elt:any) => (elt?.nom.toLowerCase().includes(this.filterValue.toLowerCase())) || elt?.prenom.toLowerCase().includes(this.filterValue.toLowerCase())
     );
   }
 
-  // Méthode pour afficher un sweetalert2 apres vérification 
+  // Méthode pour afficher un sweetalert2 apres vérification
   verifierChamps(title:any, text:any, icon:any) {
     Swal.fire({
       title: title,
@@ -126,7 +126,7 @@ export class GestionProfComponent implements OnInit {
     });
   }
 
-  // activer un prof 
+  // activer un prof
   activerProf(user:any){
     Swal.fire({
       title: "Etes-vous sur???",
@@ -140,18 +140,18 @@ export class GestionProfComponent implements OnInit {
       if (result.isConfirmed) {
         user.etatProf = 1;
         user.updateAt = new Date();
-        // On met à jour le tableau qui est stocké dans le localStorage 
+        // On met à jour le tableau qui est stocké dans le localStorage
         localStorage.setItem("professeurs", JSON.stringify(this.tabProfs))
-        this.verifierChamps("Compte activé!", "", "success");     
-        
+        this.verifierChamps("Compte activé!", "", "success");
+
         // Si on active un prof, le nombre de prof actifs augmente et le nombre de prof inactif dimunue
         this.nbreProfActif +=1;
         this.nbreProfInactif -= 1;
       }
     });
   }
-  
-  // desactiver un prof 
+
+  // desactiver un prof
   desactiverProf(user:any){
     Swal.fire({
       title: "Etes-vous sur???",
@@ -165,10 +165,10 @@ export class GestionProfComponent implements OnInit {
       if (result.isConfirmed) {
         user.etatProf = 0;
         user.updateAt = new Date();
-        // On met à jour le tableau qui est stocké dans le localStorage 
+        // On met à jour le tableau qui est stocké dans le localStorage
         localStorage.setItem("professeurs", JSON.stringify(this.tabProfs))
-        this.verifierChamps("Compte désactivé!", "", "success");     
-        
+        this.verifierChamps("Compte désactivé!", "", "success");
+
         // Si on désactive un prof, le nombre de prof actifs dimunie et le nombre de prof inactif augmente
         this.nbreProfActif -=1;
         this.nbreProfInactif += 1;
@@ -218,9 +218,9 @@ export class GestionProfComponent implements OnInit {
           this.profFound.image = this.imageUrl;
           this.profFound.updateAt = new Date();
           this.profFound.updateBy = this.adminConnect.email;
-          // On met à jour le tableau qui est stocké dans le localStorage 
+          // On met à jour le tableau qui est stocké dans le localStorage
           localStorage.setItem("professeurs", JSON.stringify(this.tabProfs))
-          this.verifierChamps("Compte modifié!", "", "success");     
+          this.verifierChamps("Compte modifié!", "", "success");
         }
       });
 
@@ -228,7 +228,7 @@ export class GestionProfComponent implements OnInit {
   }
 
   // Détails d'un prof
-  // Détails professeur 
+  // Détails professeur
   detailProf(prof:any){
     // On stocke le prof trouver dans la variable profound pour une utilisation ultérieure
     this.profFound = prof;
@@ -252,7 +252,7 @@ export class GestionProfComponent implements OnInit {
     // console.log(classeFound);
   }
 
-  // Détails matiere du prof 
+  // Détails matiere du prof
   detailsMatiere(matiere:any){
     this.nbreEvaluation = 0;
     this.nomMatiere = matiere.nomMatiere;
@@ -287,7 +287,7 @@ export class GestionProfComponent implements OnInit {
   showNote: boolean = true;
   noteApprenant: any;
   idAppFound: any
-  
+
   // Notes des apprenants de la classe conserné qui ont fait l'évaluation
   noteApprenantFound(note:any, identifiant:any){
     console.log(note);
@@ -302,12 +302,12 @@ export class GestionProfComponent implements OnInit {
     console.log(this.noteApprenant);
   }
 
-  // On clicque pour ne voir que la note 
+  // On clicque pour ne voir que la note
   showNoteApprenant(){
     this.showNote = !this.showNote;
   }
 
-  // Methode pour affecter à nouveau une matiere au prof 
+  // Methode pour affecter à nouveau une matiere au prof
   affecterMatiere(){
     // Avant d'executer cette methode, on fait appel à la methode détailProf avec l'evenement (click)
     // pour récupérer le prof concerné
@@ -319,11 +319,11 @@ export class GestionProfComponent implements OnInit {
       // On vérifie si la matiere sélectionnée n'est pas déjà dans le tableau des matières du prof
       let existMatiereProf = this.profFound.matieres.find((matiere:any) => matiere.idMatiere == this.matiereProfChose);
       if(existMatiereProf){
-        this.verifierChamps("Matiere déja affecté!", "", "error"); 
+        this.verifierChamps("Matiere déja affecté!", "", "error");
       }
       else{
-        // On ajoute la matiere dans le tableau des matieres du prof 
-        // On s'assure d'abord de répérer le bon objet matiere dans la classe de matiere 
+        // On ajoute la matiere dans le tableau des matieres du prof
+        // On s'assure d'abord de répérer le bon objet matiere dans la classe de matiere
         // avant de l'affecter au prof
         let matiereFound = this.tabMatieres.find((matiere:any) => matiere.idMatiere == this.matiereProfChose);
         console.log(matiereFound);
@@ -338,28 +338,28 @@ export class GestionProfComponent implements OnInit {
           confirmButtonText: "Oui, j'affecte!"
         }).then((result) => {
           if (result.isConfirmed) {
-            // On ajoute la matiere dans le tableau des matieres du prof 
+            // On ajoute la matiere dans le tableau des matieres du prof
             this.profFound.matieres.push(matiereFound);
-            
+
             // On modifie la date de derniere modification
             this.profFound.updateAt = new Date();
 
             console.log(this.tabProfs);
-            // On met à jour le tableau qui est stocké dans le localStorage 
+            // On met à jour le tableau qui est stocké dans le localStorage
             localStorage.setItem("professeurs", JSON.stringify(this.tabProfs))
-            this.verifierChamps("Matiere effecté avec succes!", "", "success");     
+            this.verifierChamps("Matiere effecté avec succes!", "", "success");
           }
         });
       }
     }
     else{
-      // Si on ne choisi pas de matiere 
-      this.verifierChamps("Aucune matiere sélectionnée!", "", "error"); 
+      // Si on ne choisi pas de matiere
+      this.verifierChamps("Aucune matiere sélectionnée!", "", "error");
     }
 
-    // // On récupère la matiere 
+    // // On récupère la matiere
     // this.matiereFound = this.tabMatieres.find((matiere:any) => matiere.idMatiere == this.matiereProf);
     // console.log(this.matiereFound);
   }
-  
+
 }

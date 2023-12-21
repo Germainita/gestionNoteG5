@@ -1,3 +1,4 @@
+import { Classe, Apprenant } from './../../models/models';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Evaluation, Matiere } from 'src/app/models/models';
@@ -360,6 +361,9 @@ changerCouleur(item: any) {
 
     // console.log(evaluation);
 }
+
+//
+ajouterNote (user:any){}
 
 
 

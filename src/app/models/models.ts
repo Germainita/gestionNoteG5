@@ -1,4 +1,4 @@
-// Model pour apprenant 
+// Model pour apprenant
 export class Apprenant {
     idApprenant: number = 0;
     etatApprenant: number = 0;
@@ -18,7 +18,14 @@ export class Apprenant {
     updateBy: string = "";
 }
 
-// Model pour classe 
+// Model pour Notes
+export class Note {
+  idNote: number = 0 ;
+  matiere: string = "";
+  valeur: number = 0;
+}
+
+// Model pour classe
 export class Classe {
     idClasse: number = 0;
     etatClasse: number = 0;
@@ -44,6 +51,9 @@ export class Evaluation {
 }
 
 export class Matiere{
+    static evaluation(evaluation: any) {
+      throw new Error('Method not implemented.');
+    }
     idMatiere: number = 0;
     nomMatiere: string = "";
     description: string = "";

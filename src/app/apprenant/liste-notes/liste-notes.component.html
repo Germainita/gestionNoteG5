@@ -1,1 +1,36 @@
-<p>liste-notes works!</p>
+<!-- <table class="table" style="color: black;" >
+  <thead style="color: black;" >
+      <tr >
+          <th style="color: black;"> Classe</th>
+          <th style="color: black;"> Matiere</th>
+          <th style="color: black;"> Note </th>
+          <th style="color: black;"> Semestre </th>
+          <th style="color: black;"> Annee Scolaire </th>
+      </tr>
+  </thead>
+  <tbody>
+
+    <span class="pl-2">{{apprenantConnect.prenom}} {{apprenantConnect.nom}}</span>
+
+    <tr *ngFor="let note of tabApprenant">
+          <td>
+          </td>
+          <td>{{note.classe}}</td>
+          <td>physique</td>
+          <td>{{note.note}}</td>
+          <td>semestre1</td>
+          <td>{{note.annee}}</td>
+      </tr>
+
+  </tbody>
+</table> -->
+<!-- liste-notes.component.html -->
+<div>
+  <h2>Liste des Notes de l'Apprenant</h2>
+  <ul>
+    <li *ngFor="let note of notesApprenant" >
+      Matière: {{ note.matiere }} - Note: {{ note.valeur }}
+    </li>
+  </ul>
+</div>
+

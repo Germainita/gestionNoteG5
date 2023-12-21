@@ -95,28 +95,28 @@ export class DashbordAdminComponent implements OnInit {
   // La matière trouvée
   matiereFound: any;
 
-  // L'annee scolaire courent: 
+  // L'annee scolaire courent:
   anneeScolaireActu: any;
 
-  // Affichage entre le statistic des utilisateur et la gestion des matieres 
+  // Affichage entre le statistic des utilisateur et la gestion des matieres
   showStatistic: boolean = true;
-  
-  // Recherche 
-  // Pour récuperer le champs input 
+
+  // Recherche
+  // Pour récuperer le champs input
   filterValue: string= "";
   // professeur
   tabProfsFilter: any;
-  // Apprenant: 
+  // Apprenant:
   tabApprenantsFilter: any;
-  // Matiere 
+  // Matiere
   tabMatieresFilter: any;
 
   // Déclaration des méthodes
   // Méthode d'initialisation ngOnInit()
   ngOnInit(): void {
-    // Récupération de l'annescolaire courent 
+    // Récupération de l'annescolaire courent
     this.anneeScolaireActu = JSON.parse(localStorage.getItem("anneeScolaireCourent") || "");
-    
+
     // On récupère l'admin qui s'est connecté
     this.adminConnect = JSON.parse(localStorage.getItem("adminConnect") || "[]");
 
@@ -128,19 +128,19 @@ export class DashbordAdminComponent implements OnInit {
     // On récupère et stocke le tableau des professeurs
     this.tabProfesseurs = JSON.parse(localStorage.getItem("professeurs") || "[]");
     this.tabProfsFilter = this.tabProfesseurs;
-    
-    // On récupère et stocke le tableau des apprenants 
+
+    // On récupère et stocke le tableau des apprenants
     this.tabApprenants = JSON.parse(localStorage.getItem("apprenants") || "[]");
-    
+
     this.tabApprenantsFilter = this.tabApprenants;
 
     // On stocke le tableaux des matieres dans le localStorage
     // if(!localStorage.getItem("matieres")){
     //   localStorage.setItem("matieres", JSON.stringify(this.matieres))
     // }
-    // On récupère et stocke le tableau des matieres 
+    // On récupère et stocke le tableau des matieres
     this.tabMatieres = JSON.parse(localStorage.getItem("matieres") || "[]");
-    
+
     this.tabMatieresFilter = this.tabMatieres;
     // On stocke le tableaux des classes dans le localStorage
     // if(!localStorage.getItem("classes")){
@@ -155,7 +155,7 @@ export class DashbordAdminComponent implements OnInit {
 
   // Methode de recherche automatique pour professeur
   onSearchProf(){
-    // Recherche se fait selon le nom ou le prenom 
+    // Recherche se fait selon le nom ou le prenom
     this.tabProfsFilter = this.tabProfesseurs.filter(
       (elt:any) => (elt?.nom.toLowerCase().includes(this.filterValue.toLowerCase())) || elt?.prenom.toLowerCase().includes(this.filterValue.toLowerCase())
     );
@@ -163,7 +163,7 @@ export class DashbordAdminComponent implements OnInit {
 
   // Methode de recherche automatique pour un apprenant
   onSearchApprenant(){
-    // Recherche se fait selon le nom ou le prenom 
+    // Recherche se fait selon le nom ou le prenom
     this.tabApprenantsFilter = this.tabApprenants.filter(
       (elt:any) => (elt?.nom.toLowerCase().includes(this.filterValue.toLowerCase())) || elt?.prenom.toLowerCase().includes(this.filterValue.toLowerCase())
     );
@@ -171,7 +171,7 @@ export class DashbordAdminComponent implements OnInit {
 
   // Methode de recherche automatique pour une matiere
   onSearchMatiere(){
-    // Recherche se fait selon le nom de la matière 
+    // Recherche se fait selon le nom de la matière
     this.tabMatieresFilter = this.tabMatieres.filter(
       (elt:any) => (elt?.nomMatiere.toLowerCase().includes(this.filterValue.toLowerCase()))
     );
@@ -381,17 +381,17 @@ export class DashbordAdminComponent implements OnInit {
       this.idLastMatiere = this.tabMatieres[this.tabMatieres.length - 1].idMatiere;
     }
 
-    // On vérifie si les champs ne sont pas vide 
+    // On vérifie si les champs ne sont pas vide
     if(this.nomMatiere=="" || this.description==""){
       this.verifierChamps("Impossible!", "le nom et la description sont obligatoires", "error");
     }
-    
+
     else{
-      // on vérifie si le nom de la matiere n'existe pas 
+      // on vérifie si le nom de la matiere n'existe pas
       let existMatiere = this.tabMatieres.find((matiere:any) => matiere.nomMatiere.toLowerCase() == this.nomMatiere.toLowerCase());
       console.log(existMatiere)
       if (existMatiere){
-        // Si on trouve une matiere, l'operation s'arrete 
+        // Si on trouve une matiere, l'operation s'arrete
         this.verifierChamps("Impossible!", "Matiere déja ajoutée", "error");
       }
 
@@ -405,14 +405,14 @@ export class DashbordAdminComponent implements OnInit {
           createAt: new Date(),
           createBy: this.adminConnect.email,
           updateAt: "",
-          updateBy: "", 
+          updateBy: "",
         };
-  
+
         this.tabMatieres.push(matiere);
         this.viderChampsMatiere();
-  
+
         localStorage.setItem("matieres", JSON.stringify(this.tabMatieres));
-  
+
         this.verifierChamps("Felicitation!", "Matière crée avec success", "success");
       }
 
@@ -510,7 +510,7 @@ export class DashbordAdminComponent implements OnInit {
     this.showNote = !this.showNote;
   }
 
-  // Détails apprenant 
+  // Détails apprenant
   detailApprenant(user:any){
     this.apprenantFound = user;
     let classeFound = this.tabClasses.find((elemnt:any)=> elemnt.idClasse == this.apprenantFound.niveau)
@@ -528,7 +528,7 @@ export class DashbordAdminComponent implements OnInit {
     this.classeApprenant = classeFound.nomClasse;
   }
 
-  // Détail matiere 
+  // Détail matiere
   detailMatiere(matiere:any){
     this.nomMatiere = matiere.nomMatiere;
     this.description = matiere.description;
@@ -538,7 +538,7 @@ export class DashbordAdminComponent implements OnInit {
     this.createBy = matiere.createBy;
   }
 
-  // Modification de la description d'une matiere 
+  // Modification de la description d'une matiere
   // Methode pour charger les informations
   chargerInfosMatiere(matiere:any){
     this.matiereFound = matiere;
@@ -547,7 +547,7 @@ export class DashbordAdminComponent implements OnInit {
     console.log(matiere);
   }
 
-  // Methode pour modifier la matière 
+  // Methode pour modifier la matière
   modifierMatiere(){
     Swal.fire({
       title: "Etes-vous sur???",
